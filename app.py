@@ -10,13 +10,12 @@ app = Flask(__name__)
 
 @app.route('/result',)
 def result():
-#     aipredict = load_learner('./groeistadiamodel.pkl')
-#     photo = request.files['file']
-#     prediction = aipredict.predict(photo)
+    aipredict = load_learner('./laatstemodel.pkl')
+    photo = request.files['file']
+    prediction = aipredict.predict(photo)
 
     json_file = {}
-    json_file['hello'] = 'hello_world'
-#     json_file['prediction'] = prediction
+    json_file['prediction'] = prediction
     return jsonify(json_file)
 
 @app.route('/')
