@@ -8,7 +8,7 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
-@app.route('/result',methods["POST"])
+@app.route('/result', methods["POST"])
 def result():
     aipredict = load_learner('./laatstemodel.pkl')
     photo = request.files['file']
