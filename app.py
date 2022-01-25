@@ -14,10 +14,9 @@ def result():
 #     photo = request.files['file']
 #     prediction = aipredict.predict(photo)
 
-    json_file = {
-      hello:'Hello'
-    }
-#     json_file['query'] = prediction
+    json_file = {}
+    json_file['hello'] = 'hello_world'
+#     json_file['prediction'] = prediction
     return jsonify(json_file)
 
 @app.route('/')
