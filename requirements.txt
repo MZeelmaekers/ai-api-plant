@@ -107,11 +107,12 @@ pyglet==1.5.21
 Pygments==2.10.0
 pyparsing==2.4.7
 PyPDF2==1.26.0
+pypiwin32
 pyppeteer==0.2.6
 pyrsistent==0.18.0
 python-dateutil==2.8.2
 pytz==2021.3
-pywin32==301
+pywin32
 pywinpty==1.1.6
 PyYAML==6.0
 pyzmq==22.3.0
