@@ -22,5 +22,6 @@ app = Flask(__name__)
 def index():
   return "<h1>Welcome to the Plant AI</h1>"
 
-app.run()
+if __name__ == "__main__":
+  app.run()
 
