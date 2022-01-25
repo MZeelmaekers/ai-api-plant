@@ -3,7 +3,7 @@
 # fastbook.setup_book()
 # from fastbook import *
 # from fastai.vision.widgets import *
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -15,7 +15,7 @@ def result():
 #     prediction = aipredict.predict(photo)
 
     json_file = {
-      hello:'Hello World!'
+      hello:'Hello'
     }
 #     json_file['query'] = prediction
     return jsonify(json_file)
