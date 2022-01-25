@@ -6,7 +6,6 @@ import joblib
 
 app = Flask(__name__)
 
-
 @app.route('/result', methods["POST"])
 def result():
     # aipredict = load_learner('./laatstemodel.pkl')
