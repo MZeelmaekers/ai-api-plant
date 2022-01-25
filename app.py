@@ -1,11 +1,10 @@
 # from fastai.vision import *
-import fastbook
-from flask import *
+from flask import request, jsonify, Flask
 import joblib
 
 app = Flask(__name__)
 
-@app.route('/result', methods["POST"])
+@app.route('/result')
 def result():
     # aipredict = load_learner('./laatstemodel.pkl')
     model= joblib.load(open("laatstemodel.pkl", "rb"))
