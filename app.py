@@ -8,17 +8,17 @@ from flask import Flask, jsonify
 app = Flask(name)
 
 
-@app.route('/', methods['POST'])
-def get_result():
-    aipredict = load_learner('./groeistadiamodel.pkl')
-    photo = request.files['file']
-    prediction = aipredict.predict(photo)
+# @app.route('/', methods['POST'])
+# def get_result():
+#     aipredict = load_learner('./groeistadiamodel.pkl')
+#     photo = request.files['file']
+#     prediction = aipredict.predict(photo)
 
-    json_file = {}
-    json_file['query'] = prediction
-    return jsonify(json_file)
+#     json_file = {}
+#     json_file['query'] = prediction
+#     return jsonify(json_file)
 
-@app.route('/', methods['GET'])
+@app.route('/')
 def index():
   return "<h1>Welcome to the Plant AI</h1>"
 
