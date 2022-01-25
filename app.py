@@ -18,7 +18,7 @@ def get_result():
     json_file['query'] = prediction
     return jsonify(json_file)
 
-@app.route('/', methods['POST'])
+@app.route('/', methods['GET'])
 def index():
   return "<h1>Welcome to the Plant AI</h1>"
 
