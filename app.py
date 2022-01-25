@@ -1,8 +1,8 @@
-# from urllib import request
-# import fastbook
-# fastbook.setup_book()
-# from fastbook import *
-# from fastai.vision.widgets import *
+from urllib import request
+import fastbook
+fastbook.setup_book()
+from fastbook import *
+from fastai.vision.widgets import *
 from flask import Flask, jsonify
 
 app = Flask(__name__)
