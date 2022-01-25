@@ -8,15 +8,17 @@ from flask import Flask
 app = Flask(__name__)
 
 
-# @app.route('/', methods['POST'])
-# def get_result():
+@app.route('/result',)
+def result():
 #     aipredict = load_learner('./groeistadiamodel.pkl')
 #     photo = request.files['file']
 #     prediction = aipredict.predict(photo)
 
-#     json_file = {}
+    json_file = {
+      hello:'Hello World!'
+    }
 #     json_file['query'] = prediction
-#     return jsonify(json_file)
+    return jsonify(json_file)
 
 @app.route('/')
 def index():
