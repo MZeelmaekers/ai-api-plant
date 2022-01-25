@@ -1,11 +1,11 @@
-from urllib import request
-import fastbook
-fastbook.setup_book()
-from fastbook import *
-from fastai.vision.widgets import *
-from flask import Flask, jsonify
+# from urllib import request
+# import fastbook
+# fastbook.setup_book()
+# from fastbook import *
+# from fastai.vision.widgets import *
+from flask import Flask
 
-app = Flask(name)
+app = Flask(__name__)
 
 
 # @app.route('/', methods['POST'])
@@ -22,5 +22,5 @@ app = Flask(name)
 def index():
   return "<h1>Welcome to the Plant AI</h1>"
 
-
+app.run()
 
