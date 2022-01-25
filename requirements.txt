@@ -1,1 +1,4 @@
 Flask
+fastbook
+fastai
+urllib
