@@ -1,4 +1,5 @@
 # from fastai.vision import *
+import fastbook
 from crypt import methods
 from flask import Flask, jsonify, request
 import joblib
