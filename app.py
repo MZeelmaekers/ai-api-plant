@@ -1,4 +1,5 @@
 # from fastai.vision import *
+import torch
 from flask import request, jsonify, Flask
 import joblib
 
