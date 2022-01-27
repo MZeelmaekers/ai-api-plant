@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.8.6
 WORKDIR /
 
 COPY ./api/requirements.txt requirements.txt
