@@ -2,10 +2,10 @@ FROM python:3
 
 WORKDIR /
 
-COPY ./api/requirements.txt requirements.txt
+COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
-COPY ./api .
+COPY . .
 
 EXPOSE 80
 
