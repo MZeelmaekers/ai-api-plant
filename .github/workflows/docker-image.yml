@@ -20,9 +20,11 @@ jobs:
         # Username used to log against the Docker registry
        username: ${{ secrets.DOCKERHUB_USERNAME }}
        password: ${{ secrets.DOCKERHUB_TOKEN }}
-         
+
+    - name: Move directory
+      run: cd ./api   
+
     - name: Build the Docker image
-      run: cd ./api
       run: docker build -t ai-api .
 
        
