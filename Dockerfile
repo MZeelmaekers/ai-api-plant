@@ -1,8 +1,10 @@
-FROM amd64/python
+FROM ubuntu
 WORKDIR /
 
+RUN apt-get update
+RUN apt-get install python
+
 COPY ./api/requirements.txt requirements.txt
-RUN python
 RUN python -m pip install --upgrade pip
 RUN python -m pip install torch==1.7.0 -f https://download.pytorch.org/whl/torch_stable.html
 RUN python -m pip install -r requirements.txt
