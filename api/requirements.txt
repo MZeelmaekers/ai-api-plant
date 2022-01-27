@@ -1,4 +1,4 @@
 --find-links https://download.pytorch.org/whl/torch_stable.html
-torch==1.2.0+cpu
+torch==1.2.0
 Flask==2.0.2
 fastai==2.5.3
