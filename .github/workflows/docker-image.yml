@@ -22,7 +22,7 @@ jobs:
        password: ${{ secrets.DOCKERHUB_TOKEN }}
          
     - name: Build the Docker image
-      run: docker build -t ai-api -f ai-api-plant/api/Dockerfile .
+      run: docker build -t ai-api -f ../api/Dockerfile .
 
        
     - name: Tag the Docker image
