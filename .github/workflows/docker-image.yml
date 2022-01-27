@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: python:3
+    runs-on: python-latest
 
     steps:
     - name: Docker Login
