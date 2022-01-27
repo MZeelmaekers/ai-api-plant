@@ -1,8 +1,8 @@
-FROM ubuntu
+FROM ubuntu:20.04
 WORKDIR /
 
-RUN apt-get update
-RUN apt-get install python
+RUN apt-get update --assume-yes
+RUN apt-get install python --assume-yes
 
 COPY ./api/requirements.txt requirements.txt
 RUN python -m pip install --upgrade pip
