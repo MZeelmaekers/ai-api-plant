@@ -1,5 +1,4 @@
-FROM amd64/python:3
-
+FROM amd64/python
 WORKDIR /
 
 COPY ./api/requirements.txt requirements.txt
