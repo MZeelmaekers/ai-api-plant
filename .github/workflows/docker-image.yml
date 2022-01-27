@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-
+-
   build:
 
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
        password: ${{ secrets.DOCKERHUB_TOKEN }}
          
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ai-api
+      run: docker build . --tag ai-api
 
        
     - name: Tag the Docker image
