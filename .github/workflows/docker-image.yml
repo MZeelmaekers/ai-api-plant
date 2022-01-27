@@ -1,0 +1,29 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: Login to DockerHub
+       uses: docker/login-action@v1
+       with:
+         username: ${{ secrets.michielvdz }}
+         password: ${{ secrets.7b3f717a-9915-4757-8b50-bdb1c49e9e58 }}
+         
+     - name: Build the Docker image
+       run: docker build -t ai-api -f api/Dockerfile .
+       
+     - name: Tag the Docker image
+       run: docker tag ai-api michielvdz/ai-api
+       
+     - name: Push the Docker image to dockerhub
+       run: docker tag ai-api michielvdz/ai-api
