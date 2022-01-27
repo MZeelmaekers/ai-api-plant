@@ -1,7 +1,4 @@
-import fastbook
-fastbook.setup_book()
-from fastbook import *
-from fastai.vision.widgets import *
+from fastai.vision.all import *
 from flask import *
 
 app = Flask(__name__)
