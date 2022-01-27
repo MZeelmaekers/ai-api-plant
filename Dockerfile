@@ -3,6 +3,7 @@ WORKDIR /
 
 RUN apt-get update --assume-yes
 RUN apt-get install python --assume-yes
+RUN sudo apt install python3-pip
 
 COPY ./api/requirements.txt requirements.txt
 RUN python -m pip install --upgrade pip
