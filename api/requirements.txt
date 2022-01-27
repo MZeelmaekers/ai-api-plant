@@ -1,2 +1,2 @@
-Flask==2.0.2
-fastai==1.0.61
+Flask
+fastai
