@@ -3,7 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches:
-      - 'main'
+      - main
 
 jobs:
 
@@ -23,8 +23,7 @@ jobs:
        password: ${{ secrets.DOCKERHUB_TOKEN }}
          
     - name: Build the Docker image
-      working-directory: ./api
-      run: docker build -t ai-api .
+      run: docker build . --file Dockerfile --tag ai-api
 
        
     - name: Tag the Docker image
