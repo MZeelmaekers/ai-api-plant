@@ -1,4 +1,7 @@
-from fastai.vision import *
+import fastbook
+fastbook.setup_book()
+from fastbook import *
+from fastai.vision.widgets import *
 from flask import *
 
 app = Flask(__name__)
@@ -9,8 +12,16 @@ def result():
     photo = request.files['file']
     prediction = aipredict.predict(photo)
 
+
+    week = prediction[0] 
+    accuracyprediction = re.search('TensorBase(.*)', str(max(prediction[2])))
+    accuracypr = accuracyprediction.group(1).strip('(').strip(')')
+
+
     json_file = {}
-    json_file['prediction'] = prediction
+    json_file['week'] = week
+    json_file['accuracy'] = accuracypr
+
     return jsonify(json_file)
 
 @app.route('/test')
