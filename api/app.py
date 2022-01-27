@@ -1,4 +1,4 @@
-from fastai.vision.all import *
+from fastai.vision import *
 from flask import *
 
 app = Flask(__name__)
