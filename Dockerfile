@@ -1,4 +1,4 @@
-FROM amd64/python:latest
+FROM python
 WORKDIR /
 
 COPY ./api/requirements.txt requirements.txt
