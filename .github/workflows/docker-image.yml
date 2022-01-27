@@ -10,6 +10,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./api
+
     steps:
     - name: Docker Login
       
@@ -19,10 +23,7 @@ jobs:
       with:
         # Username used to log against the Docker registry
        username: ${{ secrets.DOCKERHUB_USERNAME }}
-       password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-    - name: Move directory
-      run: cd ./api   
+       password: ${{ secrets.DOCKERHUB_TOKEN }} 
 
     - name: Build the Docker image
       run: docker build -t ai-api .
