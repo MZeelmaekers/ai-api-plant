@@ -1,2 +1,4 @@
 Flask
-joblib
+fastai
+fastbook
+fastai
