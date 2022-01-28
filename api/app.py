@@ -1,3 +1,6 @@
+import binascii
+import io
+from PIL import Image
 from fastai.vision.all import *
 from flask import *
 import pathlib
@@ -10,7 +13,14 @@ app = Flask(__name__)
 def result():
     aipredict = load_learner('./laatstemodel.pkl')
     photo = request.files['file']
-    prediction = aipredict.predict(photo)
+
+    r_data = binascii.unhexlify(photo)
+
+    stream = io.BytesIO(r_data)
+
+    img = Image.open(stream)
+
+    prediction = aipredict.predict(img)
 
 
     week = prediction[0] 
