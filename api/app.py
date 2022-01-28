@@ -1,5 +1,4 @@
-import binascii
-import io
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from PIL import Image
 from fastai.vision.all import *
 from flask import *
@@ -14,13 +13,15 @@ def result():
     aipredict = load_learner('./laatstemodel.pkl')
     photo = request.files['file']
 
-    # r_data = binascii.unhexlify(photo)
+    connect_str = "DefaultEndpointsProtocol=https;AccountName=storagemainfotosplanten;AccountKey=YHIqjHCcXi8IO3DabS+N1lRzrBoltBaDDofu9vJmMo2tMQghoHMQ8fKT/GXVD0Q569EW8pfuJVqv7CjVkPreVA==;EndpointSuffix=core.windows.net'"
+    blob = BlobClient.from_connection_string(conn_str=connect_str, container_name="storagemainfotosplanten", blob_name="botanic")
+    with open("./"+ photo, "wb") as my_blob:
+        blob_data = blob.download_blob()
+        blob_data.readinto(my_blob)
 
-    # stream = io.BytesIO(r_data)
+    
 
-    img = Image.open(photo)
-
-    prediction = aipredict.predict(img)
+    prediction = aipredict.predict(blob_data)
 
 
     week = prediction[0] 
