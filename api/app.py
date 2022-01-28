@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/result', methods=["POST"])
 def result():
-    aipredict = load_learner(open('./laatstemodel.pkl','rb'))
+    aipredict = load_learner(open('laatstemodel.pkl','rb'))
     photo = request.files['file']
     prediction = aipredict.predict(photo)
 
