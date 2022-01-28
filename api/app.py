@@ -18,9 +18,9 @@ def result():
 
     # stream = io.BytesIO(r_data)
 
-    # img = Image.open(photo)
+    img = Image.open(photo)
 
-    prediction = aipredict.predict(photo)
+    prediction = aipredict.predict(img)
 
 
     week = prediction[0] 
