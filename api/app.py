@@ -1,11 +1,14 @@
 from fastai.vision.all import *
 from flask import *
+import pathlib
+plt = platform.system()
+if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
 app = Flask(__name__)
 
 @app.route('/result', methods=["POST"])
 def result():
-    aipredict = load_learner(open('laatstemodel.pkl','rb'))
+    aipredict = load_learner('./laatstemodel.pkl')
     photo = request.files['file']
     prediction = aipredict.predict(photo)
 
