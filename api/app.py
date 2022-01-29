@@ -1,5 +1,4 @@
 import os
-# from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 from PIL import Image
 from fastai.vision.all import *
 from flask import *
@@ -10,16 +9,6 @@ plt = platform.system()
 if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
 app = Flask(__name__) 
-
-# connect_str = "DefaultEndpointsProtocol=https;AccountName=storagemainfotosplanten;AccountKey=YHIqjHCcXi8IO3DabS+N1lRzrBoltBaDDofu9vJmMo2tMQghoHMQ8fKT/GXVD0Q569EW8pfuJVqv7CjVkPreVA==;EndpointSuffix=core.windows.net'"
-# blob_service_client = BlobServiceClient.from_connection_string(connect_str)
-
-# container_name = 'botanic'
-# container_client = blob_service_client.get_container_client(container_name)
-# download_file_path = os.path.join("./", str.replace('CAP1021602020521181158','.jpg', 'PHOTO.jpg'))
-
-# with open(download_file_path, "wb") as download_file:
-#     download_file.write(container_client.download_blob('CAP1021602020521181158.jpg'))
 
 @app.route('/result', methods=["POST"])
 def result():
