@@ -4,6 +4,8 @@ from PIL import Image
 from fastai.vision.all import *
 from flask import *
 import pathlib
+
+from matplotlib import transforms
 plt = platform.system()
 if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
@@ -21,14 +23,19 @@ app = Flask(__name__)
 
 @app.route('/result', methods=["POST"])
 def result():
-    aipredict = load_learner('./laatstemodel.pkl')
-    photo = request.form.get("file")
+    aipredict = load_learner('D:\Thomas more/Project 4.0/Code/ai-api-plant/api/laatstemodel.pkl')
+    photo = request.files["file"]
+    print('photo')
+    print(photo)
+    image = PILImage.create(photo)
+    print('image')
+    print(image)
     
-    
+  
 
     
 
-    prediction = aipredict.predict(photo)
+    prediction = aipredict.predict(image)
 
 
     week = prediction[0] 
