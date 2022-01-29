@@ -8,15 +8,19 @@ if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
 app = Flask(__name__)
 
+connect_str = "DefaultEndpointsProtocol=https;AccountName=storagemainfotosplanten;AccountKey=YHIqjHCcXi8IO3DabS+N1lRzrBoltBaDDofu9vJmMo2tMQghoHMQ8fKT/GXVD0Q569EW8pfuJVqv7CjVkPreVA==;EndpointSuffix=core.windows.net'"
+blob_service_client = BlobServiceClient.from_connection_string(connect_str)
+
+container_name = 'botanic'
+container_client = blob_service_client.get_container_client(container_name)
+
 @app.route('/result', methods=["POST"])
 def result():
     aipredict = load_learner('./laatstemodel.pkl')
     photo = request.form.get("file")
     
-    connect_str = "DefaultEndpointsProtocol=https;AccountName=storagemainfotosplanten;AccountKey=YHIqjHCcXi8IO3DabS+N1lRzrBoltBaDDofu9vJmMo2tMQghoHMQ8fKT/GXVD0Q569EW8pfuJVqv7CjVkPreVA==;EndpointSuffix=core.windows.net'"
-    blob = BlobClient.from_connection_string(conn_str=connect_str, container_name="botanic", blob_name=photo)
     with open("./"+ photo, "wb") as my_blob:
-        blob_data = blob.download_blob()
+        blob_data = container_client.download_blob()
         blob_data.readinto(my_blob)
 
     
