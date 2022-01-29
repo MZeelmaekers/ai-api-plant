@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/result', methods=["POST"])
 def result():
-    aipredict = load_learner('D:\Thomas more/Project 4.0/Code/ai-api-plant/api/laatstemodel.pkl')
+    aipredict = load_learner('./laatstemodel.pkl')
     photo = request.files["file"]
     print('photo')
     print(photo)
