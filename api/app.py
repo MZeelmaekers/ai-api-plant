@@ -14,7 +14,7 @@ def result():
     photo = request.form.get("file")
     
     connect_str = "DefaultEndpointsProtocol=https;AccountName=storagemainfotosplanten;AccountKey=YHIqjHCcXi8IO3DabS+N1lRzrBoltBaDDofu9vJmMo2tMQghoHMQ8fKT/GXVD0Q569EW8pfuJVqv7CjVkPreVA==;EndpointSuffix=core.windows.net'"
-    blob = BlobClient.from_connection_string(conn_str=connect_str, container_name="storagemainfotosplanten", blob_name="botanic")
+    blob = BlobClient.from_connection_string(conn_str=connect_str, container_name="botanic", blob_name=photo)
     with open("./"+ photo, "wb") as my_blob:
         blob_data = blob.download_blob()
         blob_data.readinto(my_blob)
