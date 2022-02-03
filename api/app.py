@@ -2,13 +2,15 @@ import os
 from PIL import Image
 from fastai.vision.all import *
 from flask import *
+from flask_cors import CORS
 import pathlib
 
 from matplotlib import transforms
 plt = platform.system()
 if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
-app = Flask(__name__) 
+app = Flask(__name__)
+CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route('/result', methods=["POST"])
 def result():
