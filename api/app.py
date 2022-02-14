@@ -12,8 +12,8 @@ import pathlib
 plt = platform.system()
 if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
-
 connect_str = "DefaultEndpointsProtocol=https;AccountName=storagemainfotosplanten;AccountKey=YHIqjHCcXi8IO3DabS+N1lRzrBoltBaDDofu9vJmMo2tMQghoHMQ8fKT/GXVD0Q569EW8pfuJVqv7CjVkPreVA==;EndpointSuffix=core.windows.net"
+
 container = "modelbotanic"
 localblobpath = "./"
 
@@ -55,6 +55,7 @@ def result():
   
   aipredict = load_learner('./AI-model.pkl')
 
+
   photo = request.files["file"]
   image = PILImage.create(photo)
         
@@ -70,8 +71,6 @@ def result():
   json_file['week'] = week
   json_file['accuracy'] = accuracypr
 
-  json_file = {}
-  json_file['week'] = "week"
 
   return jsonify(json_file)
 
