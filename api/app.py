@@ -12,8 +12,8 @@ import pathlib
 plt = platform.system()
 if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
 
+connect_str = "DefaultEndpointsProtocol=https;AccountName=storagemainfotosplanten;AccountKey=YHIqjHCcXi8IO3DabS+N1lRzrBoltBaDDofu9vJmMo2tMQghoHMQ8fKT/GXVD0Q569EW8pfuJVqv7CjVkPreVA==;EndpointSuffix=core.windows.net"
 
-connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
 container = "modelbotanic"
 localblobpath = "./"
 
@@ -53,9 +53,8 @@ def result():
     azure_blob_file_downloader = AzureBlobFileDownloader(container)
     azure_blob_file_downloader.download_all_blobs_in_container()
   
-
-
   aipredict = load_learner('./AI-model.pkl')
+
 
   photo = request.files["file"]
   image = PILImage.create(photo)
@@ -71,6 +70,7 @@ def result():
   json_file = {}
   json_file['week'] = week
   json_file['accuracy'] = accuracypr
+
 
   return jsonify(json_file)
 
