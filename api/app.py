@@ -2,6 +2,7 @@ import os
 from PIL import Image
 from fastai.vision.all import *
 from flask import *
+from flask_cors import CORS
 import pathlib
 from matplotlib import transforms
 from azure.storage.blob import BlobServiceClient, __version__
@@ -45,6 +46,7 @@ class AzureBlobFileDownloader():
 
 
 app = Flask(__name__) 
+CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route('/result', methods=["GET", "POST"])
 def result():
